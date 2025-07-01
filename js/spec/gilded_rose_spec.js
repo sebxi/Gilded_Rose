@@ -58,6 +58,7 @@ describe("Gilded Rose", function() {
     expect(items[0].quality).toBe(80);    // quality bleibt gleich
   });
 
+//Testfälle 9
   //T9.1 Backstage passes normal
   it("should increase quality by 1 when sell_in > 10", function() {
     items = [ new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20) ];
@@ -77,5 +78,12 @@ describe("Gilded Rose", function() {
     items = [ new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20) ];
     update_quality();
     expect(items[0].quality).toBe(23);
+  });
+
+  //T9.4 Backstage passes < 0 Days
+  it("should drop quality to 0 after the concert (sell_in < 0)", function() {
+    items = [ new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20) ];
+    update_quality();
+    expect(items[0].quality).toBe(0);
   });
 });
