@@ -42,5 +42,11 @@ describe("Gilded Rose", function() {
     expect(items[0].sell_in).toBe(1);      // SellIn sinkt um 1
     expect(items[0].quality).toBe(1);      // Qualität steigt um 1
   });
-  
+
+  //T7 Quality always <=50
+  it("should not increase quality above 50", function() {
+    items = [ new Item("Aged Brie", 5, 50) ];
+    update_quality();
+    expect(items[0].quality).toBe(50);
+  });
 });
