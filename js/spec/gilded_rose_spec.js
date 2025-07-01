@@ -19,4 +19,12 @@ describe("Gilded Rose", function() {
     expect(items[0].sell_in).toEqual(9);
     expect(items[0].quality).toEqual(19);
   });
+  
+  //T4 Date passed
+  it("should degrade quality by 2 when sell_in is below 0", function() {
+    items = [ new Item("Normal Item", 0, 10) ];
+    update_quality();
+    expect(items[0].sell_in).toEqual(-1);
+    expect(items[0].quality).toEqual(8); // -2 because sell_in < 0
+  });
 });
