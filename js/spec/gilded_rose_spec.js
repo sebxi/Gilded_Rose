@@ -27,4 +27,11 @@ describe("Gilded Rose", function() {
     expect(items[0].sell_in).toEqual(-1);
     expect(items[0].quality).toEqual(8); // -2 because sell_in < 0
   });
+
+  //T5 Quality never negativ
+  it("should not reduce quality below 0", function() {
+    items = [ new Item("Normal Item", 0, 0) ];
+    update_quality();
+    expect(items[0].quality).toBe(0);
+  });
 });
