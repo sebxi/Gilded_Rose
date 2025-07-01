@@ -34,4 +34,13 @@ describe("Gilded Rose", function() {
     update_quality();
     expect(items[0].quality).toBe(0);
   });
+
+  //T6 Aged Brie
+  it("should increase quality of Aged Brie as it gets older", function() {
+    items = [ new Item("Aged Brie", 2, 0) ];
+    update_quality();
+    expect(items[0].sell_in).toBe(1);      // SellIn sinkt um 1
+    expect(items[0].quality).toBe(1);      // Qualität steigt um 1
+  });
+  
 });
